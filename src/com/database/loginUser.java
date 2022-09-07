@@ -7,24 +7,30 @@ import java.sql.SQLException;
 import com.database.helper.Helper;
 
 public class loginUser {
-	public static boolean checkUsernamePassword(String inputUserName, String inputPassword) throws SQLException {
-
-		String query = "select * from Executive";
-		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
-		
-		ResultSet resultSet = preparedStatement.executeQuery();
-		while(resultSet.next()) {
-			String eUserName = resultSet.getString(3);
-			String ePassword = resultSet.getString(8);
-			if(eUserName.equals(inputUserName) && ePassword.equals(inputPassword)) {
-				return true;
+	public static boolean checkUsernamePassword(String inputUserName, String inputPassword) {
+		try {
+			String query = "select * from Executive";
+			PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
+			ResultSet resultSet;
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				String eUserName = resultSet.getString(3);
+				String ePassword = resultSet.getString(8);
+				if(eUserName.equals(inputUserName) && ePassword.equals(inputPassword)) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				return false;
-			}
+			
+			Helper.closeConnectionPreparedStatement();
+			return false;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Internal Error");
 		}
-		
-		Helper.closeConnectionPreparedStatement();
 		return false;
 	}
 }

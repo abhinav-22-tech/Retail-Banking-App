@@ -12,12 +12,15 @@ public class MainClass {
 //		BaseQuery.makeTable(false);
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Menu");
+		
+		System.out.println("Menu!");
 		System.out.println("1: Login");
-		System.out.println("2: Create New Account");
+		System.out.println("2: New Executive Account");
 		
 		int key = sc.nextInt();sc.nextLine();
+		
 		if(key == 1) {
+			System.out.println("Login!");
 			System.out.print("Enter Your Username: ");
 			String inputUserName = sc.nextLine();
 			System.out.println();
@@ -28,24 +31,28 @@ public class MainClass {
 			
 			if(loginUser.checkUsernamePassword(inputUserName, inputPassword)) {
 				System.out.println("Login Successfully");
+				System.out.println("Menu");
+				System.out.println("1: Create Customer");
+				System.out.println("2: Update Customer");
+				System.out.println("3: Delete Customer");
+				
+				int accountKey = sc.nextInt();sc.nextLine();
+				if(accountKey == 1) {
+					addData.addCustomerAccount();
+				}
+				else if(accountKey == 2) {
+					// updateData
+				}
+				else if(accountKey == 3) {
+					// deleteData
+				}
 			}
 			else {
 				System.out.println("Enter Valid Username And Password");
 			}
-			displayData.getExecutive();
 		}
 		else if(key == 2) {
-			System.out.println("Select Account!");
-			System.out.println("1: Customer Account");
-			System.out.println("2: Executive Account");
-			
-			int accountKey = sc.nextInt();sc.nextLine();
-			if(accountKey == 1) {
-				addData.addCustomerAccount();
-			}
-			else if(accountKey == 2) {
-				addData.addExecutiveAccount();
-			}
+			addData.addExecutiveAccount();
 		}
 	}
 }
