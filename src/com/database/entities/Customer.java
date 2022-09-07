@@ -2,17 +2,19 @@ package com.database.entities;
 
 public class Customer {
 	private int customerId;
+	private int customerSSNID;
 	private String customerName;
 	private int customerAge;
 	private String customerAddress;
 	private String customerCity;
 	private String customerState;
 	
-	public Customer(int customerId, String customerName, int customerAge, 
+	public Customer(int customerId, int customerSSNID, String customerName, int customerAge, 
 			String customerAddress, String customerCity, 
 			String customerState) {
 		super();
 		this.customerId = customerId;
+		this.customerSSNID = customerSSNID;
 		this.customerName = customerName;
 		this.customerAge = customerAge;
 		this.customerAddress = customerAddress;
@@ -20,16 +22,24 @@ public class Customer {
 		this.customerState = customerState;
 	}
 	
-	public Customer(String customerName, int customerAge, 
+	public Customer(int customerSSNID ,String customerName, int customerAge, 
 			String customerAddress, String customerCity, 
 			String customerState) {
 		super();
-		
+		this.customerSSNID = customerSSNID;
 		this.customerName = customerName;
 		this.customerAge = customerAge;
 		this.customerAddress = customerAddress;
 		this.customerCity = customerCity;
 		this.customerState = customerState;
+	}
+
+	public int getCustomerSSNID() {
+		return customerSSNID;
+	}
+
+	public void setCustomerSSNID(int customerSSNID) {
+		this.customerSSNID = customerSSNID;
 	}
 
 	public int getCustomerId() {

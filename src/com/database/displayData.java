@@ -17,13 +17,14 @@ public class displayData {
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while(resultSet.next()) {
 			int cid = resultSet.getInt(1);
-			String cName = resultSet.getString(2);
-			int cAge = resultSet.getInt(3);
-			String cAddress = resultSet.getString(4);
-			String cCity = resultSet.getString(5);
-			String cState = resultSet.getString(6);
+			int cSSID = resultSet.getInt(2);
+			String cName = resultSet.getString(3);
+			int cAge = resultSet.getInt(4);
+			String cAddress = resultSet.getString(5);
+			String cCity = resultSet.getString(6);
+			String cState = resultSet.getString(7);
 			
-			Customer temp = new Customer(cid, cName, cAge
+			Customer temp = new Customer(cid, cSSID,cName, cAge
 					, cAddress, cCity, cState);
 			customer.add(temp);
 		}
@@ -33,6 +34,7 @@ public class displayData {
 		for(int i = 0; i < customer.size(); i++) {
 			Customer cus = customer.get(i);
 			System.out.println("Customer Id: " + cus.getCustomerId());
+			System.out.println("Customer SSID: " + cus.getCustomerSSNID());
 			System.out.println("Customer Name: " + cus.getCustomerName());
 			System.out.println("Customer Age: " + cus.getCustomerAge());
 			System.out.println("Customer Address: " + cus.getCustomerAddress());

@@ -22,6 +22,7 @@ public class BaseQuery {
 		}else {
 			String query = "create table Customer ("
 					+ "customerId int primary key GENERATED ALWAYS AS IDENTITY, "
+					+ "customerSSNID int, "
 					+ "customerName varchar(20),  "
 					+ "customerAge int, "
 					+ "customerAddress varchar(30), "

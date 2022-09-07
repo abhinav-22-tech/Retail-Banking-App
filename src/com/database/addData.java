@@ -16,6 +16,11 @@ public class addData {
 		
 		System.out.println("Customer Account");
 		System.out.print("Enter Your Name: ");
+		int customerSSID = sc.nextInt();sc.nextLine();
+		System.out.println();
+		
+		System.out.println("Customer Account");
+		System.out.print("Enter Your Name: ");
 		String customerName = sc.nextLine();
 		System.out.println();
 		
@@ -35,7 +40,7 @@ public class addData {
 		String customerState = sc.nextLine();
 		System.out.println();
 		
-		Customer customer = new Customer(customerName, customerAge, 
+		Customer customer = new Customer(customerSSID,customerName, customerAge, 
 				customerAddress, customerCity, customerState);
 		
 		if(addData.addCustomer(customer)) {
@@ -46,16 +51,17 @@ public class addData {
 	
 	public static boolean addCustomer(Customer customer) throws SQLException {
 		boolean flag = false;
-		String query = "insert into Customer(customerName, customerAge, customerAddress, "
-				+ "customerCity, customerState) values (?,?,?,?,?)";
+		String query = "insert into Customer(customerSSID, customerName, customerAge, customerAddress, "
+				+ "customerCity, customerState) values (?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
 		
-		preparedStatement.setString(1, customer.getCustomerName());
-		preparedStatement.setInt(2, customer.getCustomerAge());
-		preparedStatement.setString(3, customer.getCustomerAddress());
-		preparedStatement.setString(4, customer.getCustomerCity());
+		preparedStatement.setInt(1, customer.getCustomerSSNID());
+		preparedStatement.setString(2, customer.getCustomerName());
+		preparedStatement.setInt(3, customer.getCustomerAge());
+		preparedStatement.setString(4, customer.getCustomerAddress());
+		preparedStatement.setString(5, customer.getCustomerCity());
 		
-		preparedStatement.setString(5, customer.getCustomerState());
+		preparedStatement.setString(6, customer.getCustomerState());
 		
 		int temp = preparedStatement.executeUpdate();
 		if(temp >= 1) {
@@ -108,7 +114,7 @@ public class addData {
 	
 	public static boolean addExecutive(Executive executive) throws SQLException {
 		boolean flag = false;
-		String query = "insert into Executive(executiveName, executivUserName, executiveAge, executiveAddress, "
+		String query = "insert into Executive(executiveName, executiveUserName, executiveAge, executiveAddress, "
 				+ "executiveCity, executiveState, executivePassword) values (?,?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
 		
