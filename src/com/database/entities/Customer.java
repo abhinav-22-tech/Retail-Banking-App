@@ -7,24 +7,33 @@ public class Customer {
 	private String customerAddress;
 	private String customerCity;
 	private String customerState;
+	private String customerPassword;
 	
-	public Customer(int ssn_Id, String customerName, int customerAge, String customerAddress, String customerCity,
-			String customerState) {
+	public Customer(String customerName, int customerAge, String customerAddress, String customerCity, String customerState, String customerPassword) {
 		super();
-		this.customerId = ssn_Id;
+		
 		this.customerName = customerName;
 		this.customerAge = customerAge;
 		this.customerAddress = customerAddress;
 		this.customerCity = customerCity;
 		this.customerState = customerState;
+		this.customerPassword = customerPassword;
 	}
 
-	public int getSsn_Id() {
+	public String getCustomerPassword() {
+		return customerPassword;
+	}
+
+	public void setCustomerPassword(String customerPassword) {
+		this.customerPassword = customerPassword;
+	}
+
+	public int getCustomerId() {
 		return customerId;
 	}
 
-	public void setSsn_Id(int ssn_Id) {
-		this.customerId = ssn_Id;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getCustomerName() {

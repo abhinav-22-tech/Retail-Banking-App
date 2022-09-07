@@ -1,10 +1,12 @@
 package com.database.helper;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 
 public class Helper {
@@ -27,7 +29,7 @@ public class Helper {
 	}
 	
 	// Statement
-	public static Statement getConnectionPreparedStatement(String sql) {
+	public static PreparedStatement getConnectionPreparedStatement(String sql) {
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			
@@ -62,5 +64,30 @@ public class Helper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static boolean tableExists(String tableName) throws SQLException {
+		try {
+			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+			Helper.connection = DriverManager.getConnection("jdbc:derby:myDB;create=true");
+			
+			DatabaseMetaData dbm = Helper.connection.getMetaData();
+			// check if "employee" table is there
+			ResultSet tables = dbm.getTables(null, null, tableName, null);
+			if (tables.next()) {
+			  // Table exists
+				return true;
+			}
+			else {
+			  // Table does not 
+				return false;
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 }
