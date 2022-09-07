@@ -11,6 +11,12 @@ public class BaseQuery {
 			
 			Statement statement = Helper.getConnectionStatement();
 			statement.execute(query);
+			
+			query = "drop table Executive";
+			statement = Helper.getConnectionStatement();
+			statement.execute(query);
+			
+			
 			System.out.println("All Table Deleted");
 			
 		}else {
@@ -25,8 +31,23 @@ public class BaseQuery {
 			
 			Statement statement = Helper.getConnectionStatement();
 			statement.execute(query);
-			System.out.println("New Table Created");
+			System.out.println("Customer Table Created");
+			
+			query = "create table Executive ("
+					+ "executiveId int primary key GENERATED ALWAYS AS IDENTITY, "
+					+ "executiveName varchar(20),  "
+					+ "executiveAge int, "
+					+ "executiveAddress varchar(30), "
+					+ "executiveCity varchar(20), "
+					+ "executiveState varchar(20), "
+					+ "executivePassword varchar(20))";
+			
+			statement = Helper.getConnectionStatement();
+			statement.execute(query);
+			System.out.println("Executive Table Created");
 		}
 		Helper.closeConnectionStatement();
 	}
+	
+	
 }
