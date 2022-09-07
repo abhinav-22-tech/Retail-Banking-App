@@ -35,12 +35,8 @@ public class addData {
 		String customerState = sc.nextLine();
 		System.out.println();
 		
-		System.out.print("Enter Your Password(must be alpanumaric): ");
-		String customerPassword = sc.nextLine();
-		System.out.println();
-		
 		Customer customer = new Customer(customerName, customerAge, 
-				customerAddress, customerCity, customerState, customerPassword);
+				customerAddress, customerCity, customerState);
 		
 		if(addData.addCustomer(customer)) {
 			System.out.println("Customer creation initiated "
@@ -51,7 +47,7 @@ public class addData {
 	public static boolean addCustomer(Customer customer) throws SQLException {
 		boolean flag = false;
 		String query = "insert into Customer(customerName, customerAge, customerAddress, "
-				+ "customerCity, customerState, customerPassword) values (?,?,?,?,?,?)";
+				+ "customerCity, customerState) values (?,?,?,?,?)";
 		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
 		
 		preparedStatement.setString(1, customer.getCustomerName());
@@ -60,7 +56,6 @@ public class addData {
 		preparedStatement.setString(4, customer.getCustomerCity());
 		
 		preparedStatement.setString(5, customer.getCustomerState());
-		preparedStatement.setString(6, customer.getCustomerPassword());
 		
 		int temp = preparedStatement.executeUpdate();
 		if(temp >= 1) {
@@ -76,6 +71,10 @@ public class addData {
 		System.out.println("Executive Account");
 		System.out.print("Enter Your Name: ");
 		String executivName = sc.nextLine();
+		System.out.println();
+		
+		System.out.print("Enter Your Username: ");
+		String executivUserName = sc.nextLine();
 		System.out.println();
 		
 		System.out.print("Enter Your Age: ");
@@ -98,7 +97,7 @@ public class addData {
 		String executivPassword = sc.nextLine();
 		System.out.println();
 		
-		Executive executive = new Executive(executivName, executivAge, 
+		Executive executive = new Executive(executivName, executivUserName, executivAge, 
 				executivAddress, executivCity, executivState, executivPassword);
 		
 		if(addData.addExecutive(executive)) {
@@ -109,17 +108,18 @@ public class addData {
 	
 	public static boolean addExecutive(Executive executive) throws SQLException {
 		boolean flag = false;
-		String query = "insert into Executive(executiveName, executiveAge, executiveAddress, "
-				+ "executiveCity, executiveState, executivePassword) values (?,?,?,?,?,?)";
+		String query = "insert into Executive(executiveName, executivUserName, executiveAge, executiveAddress, "
+				+ "executiveCity, executiveState, executivePassword) values (?,?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
 		
 		preparedStatement.setString(1, executive.getExecutiveName());
-		preparedStatement.setInt(2, executive.getExecutiveAge());
-		preparedStatement.setString(3, executive.getExecutiveAddress());
-		preparedStatement.setString(4, executive.getExecutiveCity());
+		preparedStatement.setString(2, executive.getExecutiveUserName());
+		preparedStatement.setInt(3, executive.getExecutiveAge());
+		preparedStatement.setString(4, executive.getExecutiveAddress());
+		preparedStatement.setString(5, executive.getExecutiveCity());
 		
-		preparedStatement.setString(5, executive.getExecutiveState());
-		preparedStatement.setString(6, executive.getExecutivePassword());
+		preparedStatement.setString(6, executive.getExecutiveState());
+		preparedStatement.setString(7, executive.getExecutivePassword());
 		
 		int temp = preparedStatement.executeUpdate();
 		if(temp >= 1) {

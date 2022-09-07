@@ -26,8 +26,7 @@ public class BaseQuery {
 					+ "customerAge int, "
 					+ "customerAddress varchar(30), "
 					+ "customerCity varchar(20), "
-					+ "customerState varchar(20), "
-					+ "customerPassword varchar(20))";
+					+ "customerState varchar(20))";
 			
 			Statement statement = Helper.getConnectionStatement();
 			statement.execute(query);
@@ -36,6 +35,7 @@ public class BaseQuery {
 			query = "create table Executive ("
 					+ "executiveId int primary key GENERATED ALWAYS AS IDENTITY, "
 					+ "executiveName varchar(20),  "
+					+ "executiveUserName varchar(20),  "
 					+ "executiveAge int, "
 					+ "executiveAddress varchar(30), "
 					+ "executiveCity varchar(20), "

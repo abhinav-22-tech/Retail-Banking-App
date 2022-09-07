@@ -7,9 +7,22 @@ public class Customer {
 	private String customerAddress;
 	private String customerCity;
 	private String customerState;
-	private String customerPassword;
 	
-	public Customer(String customerName, int customerAge, String customerAddress, String customerCity, String customerState, String customerPassword) {
+	public Customer(int customerId, String customerName, int customerAge, 
+			String customerAddress, String customerCity, 
+			String customerState) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerAge = customerAge;
+		this.customerAddress = customerAddress;
+		this.customerCity = customerCity;
+		this.customerState = customerState;
+	}
+	
+	public Customer(String customerName, int customerAge, 
+			String customerAddress, String customerCity, 
+			String customerState) {
 		super();
 		
 		this.customerName = customerName;
@@ -17,15 +30,6 @@ public class Customer {
 		this.customerAddress = customerAddress;
 		this.customerCity = customerCity;
 		this.customerState = customerState;
-		this.customerPassword = customerPassword;
-	}
-
-	public String getCustomerPassword() {
-		return customerPassword;
-	}
-
-	public void setCustomerPassword(String customerPassword) {
-		this.customerPassword = customerPassword;
 	}
 
 	public int getCustomerId() {

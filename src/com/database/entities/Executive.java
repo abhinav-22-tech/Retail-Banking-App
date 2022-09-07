@@ -3,21 +3,34 @@ package com.database.entities;
 public class Executive {
 	private int executiveId;
 	private String executiveName;
+	private String executiveUserName;
 	private int executiveAge;
 	private String executiveAddress;
 	private String executiveCity;
 	private String executiveState;
 	private String executivePassword;
 	
-	public Executive(String executiveName, int executiveAge, String executiveAddress, String executiveCity, String executiveState, String executivePassword) {
+	public Executive(String executiveName, String executiveUserName,int executiveAge, String executiveAddress, String executiveCity, String executiveState, String executivePassword) {
 		super();
 		
 		this.executiveName = executiveName;
+		this.setExecutiveUserName(executiveUserName);
 		this.executiveAge = executiveAge;
 		this.executiveAddress = executiveAddress;
 		this.executiveCity = executiveCity;
 		this.executiveState = executiveState;
 		this.executivePassword = executivePassword;
+	}
+	
+	public Executive(int executiveId,String executiveName, String executiveUserName,int executiveAge, String executiveAddress, String executiveCity, String executiveState) {
+		super();
+		this.executiveId = executiveId;
+		this.executiveName = executiveName;
+		this.setExecutiveUserName(executiveUserName);
+		this.executiveAge = executiveAge;
+		this.executiveAddress = executiveAddress;
+		this.executiveCity = executiveCity;
+		this.executiveState = executiveState;
 	}
 
 	public int getExecutiveId() {
@@ -74,6 +87,14 @@ public class Executive {
 
 	public void setExecutivePassword(String executivePassword) {
 		this.executivePassword = executivePassword;
+	}
+
+	public String getExecutiveUserName() {
+		return executiveUserName;
+	}
+
+	public void setExecutiveUserName(String executiveUserName) {
+		this.executiveUserName = executiveUserName;
 	}
 
 	
