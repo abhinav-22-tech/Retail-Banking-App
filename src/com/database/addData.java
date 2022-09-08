@@ -63,11 +63,7 @@ public class addData {
 				if(SSNID == cSSNID) {
 					return true;
 				}
-				else {
-					return false;
-				}
 			}
-			
 			Helper.closeConnectionPreparedStatement();
 			return false;
 			

@@ -13,12 +13,13 @@ public class updateCustomer {
 	public static void updateCustomerAccount() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Add Customer Account");
+		System.out.println("Update Customer Screen");
 		System.out.print("Enter Customer SSNID: ");
 		int customerSSID = sc.nextInt();sc.nextLine();
 		System.out.println();
 		
 		if(!addData.checkSSNID(customerSSID)) {
+			System.out.println(customerSSID);
 			System.out.println("SSNID Not Exist");
 		}
 		
