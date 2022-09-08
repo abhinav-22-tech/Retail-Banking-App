@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Hp/Desktop/db-derby-10.14.2.0-bin/lib/derby.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hp/Desktop/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

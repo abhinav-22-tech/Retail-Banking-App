@@ -17,8 +17,11 @@ public class Helper {
 	// Connection
 	public static Statement getConnectionStatement() {
 		try {
-			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			Helper.connection = DriverManager.getConnection("jdbc:derby:myDB;create=true");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String dbURL = "jdbc:mysql://localhost:3306/mydb";
+			String username = "root";
+			String password = "aadish";
+			Helper.connection = DriverManager.getConnection(dbURL, username, password);
 			Helper.statement = Helper.connection.createStatement();
 			return statement;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -31,9 +34,11 @@ public class Helper {
 	// Statement
 	public static PreparedStatement getConnectionPreparedStatement(String sql) {
 		try {
-			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			
-			Helper.connection = DriverManager.getConnection("jdbc:derby:myDB;create=true");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String dbURL = "jdbc:mysql://localhost:3307/mydb";
+			String username = "root";
+			String password = "aadish";
+			Helper.connection = DriverManager.getConnection(dbURL, username, password);
 			Helper.preparedStatement = Helper.connection.prepareStatement(sql);
 			return preparedStatement;
 			
@@ -68,9 +73,11 @@ public class Helper {
 	
 	public static boolean tableExists(String tableName) throws SQLException {
 		try {
-			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			Helper.connection = DriverManager.getConnection("jdbc:derby:myDB;create=true");
-			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String dbURL = "jdbc:mysql://localhost:3307/mydb";
+			String username = "root";
+			String password = "aadish";
+			Helper.connection = DriverManager.getConnection(dbURL, username, password);
 			DatabaseMetaData dbm = Helper.connection.getMetaData();
 			// check if "employee" table is there
 			ResultSet tables = dbm.getTables(null, null, tableName, null);

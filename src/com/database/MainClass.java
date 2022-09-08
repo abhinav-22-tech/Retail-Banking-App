@@ -21,6 +21,7 @@ public class MainClass {
 		
 		if(key == 1) {
 			System.out.println("Login!");
+			
 			System.out.print("Enter Your Username: ");
 			String inputUserName = sc.nextLine();
 			System.out.println();
@@ -31,6 +32,7 @@ public class MainClass {
 			
 			if(loginUser.checkUsernamePassword(inputUserName, inputPassword)) {
 				System.out.println("Login Successfully");
+//				displayData.getExecutive();
 				System.out.println("Menu");
 				System.out.println("1: Create Customer");
 				System.out.println("2: Update Customer");

@@ -67,13 +67,13 @@ public class displayData {
 		
 		for(int i = 0; i < executive.size(); i++) {
 			Executive exec = executive.get(i);
-			System.out.println("Customer Id: " + exec.getExecutiveId());
-			System.out.println("Customer Name: " + exec.getExecutiveName());
-			System.out.println("Customer UserName: " + exec.getExecutiveUserName());
-			System.out.println("Customer Age: " + exec.getExecutiveAge());
-			System.out.println("Customer Address: " + exec.getExecutiveAddress());
-			System.out.println("Customer City: " + exec.getExecutiveCity());
-			System.out.println("Customer State: " + exec.getExecutiveState());
+			System.out.println("Executive Id: " + exec.getExecutiveId());
+			System.out.println("Executive Name: " + exec.getExecutiveName());
+			System.out.println("Executive UserName: " + exec.getExecutiveUserName());
+			System.out.println("Executive Age: " + exec.getExecutiveAge());
+			System.out.println("Executive Address: " + exec.getExecutiveAddress());
+			System.out.println("Executive City: " + exec.getExecutiveCity());
+			System.out.println("Executive State: " + exec.getExecutiveState());
 		}
 	}
 }

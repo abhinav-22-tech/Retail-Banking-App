@@ -1,4 +1,4 @@
-Wed Sep 07 20:13:37 IST 2022 Thread[main,5,main] Cleanup action starting
+Thu Sep 08 09:26:29 IST 2022 Thread[main,5,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'myDB' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -14,9 +14,9 @@ java.sql.SQLException: Failed to start database 'myDB' with class loader jdk.int
 	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:251)
-	at com.database.helper.Helper.getConnectionStatement(Helper.java:21)
-	at com.database.helper.BaseQuery.makeTable(BaseQuery.java:12)
-	at com.database.MainClass.main(MainClass.java:12)
+	at com.database.helper.Helper.getConnectionPreparedStatement(Helper.java:36)
+	at com.database.loginUser.checkUsernamePassword(loginUser.java:13)
+	at com.database.MainClass.main(MainClass.java:33)
 Caused by: ERROR XJ040: Failed to start database 'myDB' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44, see the next exception for details.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
@@ -84,9 +84,9 @@ java.sql.SQLException: Another instance of Derby may have already booted the dat
 	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:251)
-	at com.database.helper.Helper.getConnectionStatement(Helper.java:21)
-	at com.database.helper.BaseQuery.makeTable(BaseQuery.java:12)
-	at com.database.MainClass.main(MainClass.java:12)
+	at com.database.helper.Helper.getConnectionPreparedStatement(Helper.java:36)
+	at com.database.loginUser.checkUsernamePassword(loginUser.java:13)
+	at com.database.MainClass.main(MainClass.java:33)
 Caused by: ERROR XSDB6: Another instance of Derby may have already booted the database C:\Users\Hp\eclipse\java-2019-09\eclipse\Retail Banking App\myDB.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
@@ -195,8 +195,8 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:251)
-	at com.database.helper.Helper.getConnectionStatement(Helper.java:21)
-	at com.database.helper.BaseQuery.makeTable(BaseQuery.java:12)
-	at com.database.MainClass.main(MainClass.java:12)
+	at com.database.helper.Helper.getConnectionPreparedStatement(Helper.java:36)
+	at com.database.loginUser.checkUsernamePassword(loginUser.java:13)
+	at com.database.MainClass.main(MainClass.java:33)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
