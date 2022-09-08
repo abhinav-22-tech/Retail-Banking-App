@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
-
+import java.sql.*;
 
 public class Helper {
 	private static Connection connection;
@@ -17,11 +17,12 @@ public class Helper {
 	// Connection
 	public static Statement getConnectionStatement() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String dbURL = "jdbc:mysql://localhost:3306/mydb";
-			String username = "root";
-			String password = "aadish";
-			Helper.connection = DriverManager.getConnection(dbURL, username, password);
+			String url = "jdbc:mysql://localhost:3306/mydb";
+		    String uname = "root";
+		    String pass = "aadish";
+		      
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+			Helper.connection = DriverManager.getConnection(url, uname, pass);
 			Helper.statement = Helper.connection.createStatement();
 			return statement;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -34,11 +35,12 @@ public class Helper {
 	// Statement
 	public static PreparedStatement getConnectionPreparedStatement(String sql) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String dbURL = "jdbc:mysql://localhost:3307/mydb";
-			String username = "root";
-			String password = "aadish";
-			Helper.connection = DriverManager.getConnection(dbURL, username, password);
+			String url = "jdbc:mysql://localhost:3306/mydb";
+		    String uname = "root";
+		    String pass = "aadish";
+		      
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+			Helper.connection = DriverManager.getConnection(url, uname, pass);
 			Helper.preparedStatement = Helper.connection.prepareStatement(sql);
 			return preparedStatement;
 			
@@ -73,11 +75,12 @@ public class Helper {
 	
 	public static boolean tableExists(String tableName) throws SQLException {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String dbURL = "jdbc:mysql://localhost:3307/mydb";
-			String username = "root";
-			String password = "aadish";
-			Helper.connection = DriverManager.getConnection(dbURL, username, password);
+			String url = "jdbc:mysql://localhost:3306/mydb";
+		    String uname = "root";
+		    String pass = "aadish";
+		      
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+			Helper.connection = DriverManager.getConnection(url, uname, pass);
 			DatabaseMetaData dbm = Helper.connection.getMetaData();
 			// check if "employee" table is there
 			ResultSet tables = dbm.getTables(null, null, tableName, null);

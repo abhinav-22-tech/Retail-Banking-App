@@ -2,6 +2,7 @@ package com.database;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.sql.*;
 
 import com.database.helper.BaseQuery;
 
@@ -9,17 +10,19 @@ import com.database.entities.Customer;
 
 public class MainClass {
 	public static void main(String[] args) throws Exception {
+		
+		
 //		BaseQuery.makeTable(false);
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Menu!");
-		System.out.println("1: Login");
-		System.out.println("2: New Executive Account");
+//		System.out.println("Menu!");
+//		System.out.println("1: Login");
+//		System.out.println("2: New Executive Account");
 		
-		int key = sc.nextInt();sc.nextLine();
+//		int key = sc.nextInt();sc.nextLine();
 		
-		if(key == 1) {
+//		if(key == 1) {
 			System.out.println("Login!");
 			
 			System.out.print("Enter Your Username: ");
@@ -52,9 +55,9 @@ public class MainClass {
 			else {
 				System.out.println("Enter Valid Username And Password");
 			}
-		}
-		else if(key == 2) {
-			addData.addExecutiveAccount();
-		}
+//		}
+//		else if(key == 2) {
+//			addData.addExecutiveAccount();
+//		}
 	}
 }

@@ -14,29 +14,28 @@ public class addData {
 	public static void addCustomerAccount() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Customer Account");
-		System.out.print("Enter Your Name: ");
+		System.out.println("Add Customer Account");
+		System.out.print("Enter Customer SSNID: ");
 		int customerSSID = sc.nextInt();sc.nextLine();
 		System.out.println();
 		
-		System.out.println("Customer Account");
-		System.out.print("Enter Your Name: ");
+		System.out.print("Enter Customer Name: ");
 		String customerName = sc.nextLine();
 		System.out.println();
 		
-		System.out.print("Enter Your Age: ");
+		System.out.print("Enter Customer Age: ");
 		int customerAge = sc.nextInt();sc.nextLine();
 		System.out.println();
 		
-		System.out.print("Enter Your Address: ");
+		System.out.print("Enter Customer Address: ");
 		String customerAddress = sc.nextLine();
 		System.out.println();
 		
-		System.out.print("Enter Your City: ");
+		System.out.print("Enter Customer City: ");
 		String customerCity = sc.nextLine();
 		System.out.println();
 		
-		System.out.print("Enter Your State: ");
+		System.out.print("Enter Customer State: ");
 		String customerState = sc.nextLine();
 		System.out.println();
 		

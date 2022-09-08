@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.database.entities.Customer;
 import com.database.helper.Helper;
 
 public class loginUser {
@@ -17,7 +18,8 @@ public class loginUser {
 				String eUserName = resultSet.getString(3);
 				String ePassword = resultSet.getString(8);
 				if(eUserName.equals(inputUserName) && ePassword.equals(inputPassword)) {
-					return true;
+					boolean addIntoLog = addUserStore(eUserName, ePassword);
+					return true && addIntoLog;
 				}
 				else {
 					return false;
@@ -32,5 +34,22 @@ public class loginUser {
 			System.out.println("Internal Error");
 		}
 		return false;
+	}
+	
+	public static boolean addUserStore(String userName, String password) throws SQLException {
+		boolean flag = false;
+		String query = "insert into userStore(username, password"
+				+ ") values (?,?)";
+		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
+		
+		preparedStatement.setString(1, userName);
+		preparedStatement.setString(2, password);
+		
+		int temp = preparedStatement.executeUpdate();
+		if(temp >= 1) {
+			flag = true;
+		}
+		Helper.closeConnectionPreparedStatement();
+		return flag;
 	}
 }
