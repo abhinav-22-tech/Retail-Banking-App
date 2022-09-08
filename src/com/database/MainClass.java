@@ -9,57 +9,74 @@ import com.database.helper.BaseQuery;
 import com.database.entities.Customer;
 
 public class MainClass {
+	static String inputUserName = null;
+	static String inputPassword = null;
+
 	public static void main(String[] args) throws Exception {
-		
-		
+
 //		BaseQuery.makeTable(false);
-		
+
 		Scanner sc = new Scanner(System.in);
 		
-//		System.out.println("Menu!");
-//		System.out.println("1: Login");
-//		System.out.println("2: New Executive Account");
-		
-//		int key = sc.nextInt();sc.nextLine();
-		
-//		if(key == 1) {
+		// Check already login or not
+		if (inputUserName == null || inputPassword == null) {
 			System.out.println("Login!");
-			
 			System.out.print("Enter Your Username: ");
-			String inputUserName = sc.nextLine();
+			inputUserName = sc.nextLine();
 			System.out.println();
-			
+
 			System.out.print("Enter Your Password: ");
-			String inputPassword = sc.nextLine();
+			inputPassword = sc.nextLine();
 			System.out.println();
 			
-			if(loginUser.checkUsernamePassword(inputUserName, inputPassword)) {
+			// verify username and password
+			if (loginUser.checkUsernamePassword(inputUserName, inputPassword)) {
 				System.out.println("Login Successfully");
 //				displayData.getExecutive();
-				System.out.println("Menu");
-				System.out.println("1: Create Customer");
-				System.out.println("2: Update Customer");
-				System.out.println("3: Delete Customer");
-				
-				int accountKey = sc.nextInt();sc.nextLine();
-				if(accountKey == 1) {
-					// Create New Customer
-					addData.addCustomerAccount();
-				}
-				else if(accountKey == 2) {
-					// Update Customer Data
-					updateCustomer.updateCustomerAccount();
-				}
-				else if(accountKey == 3) {
-					// deleteData
-				}
-			}
-			else {
+				menu();
+
+			} else {
 				System.out.println("Enter Valid Username And Password");
 			}
-//		}
-//		else if(key == 2) {
-//			addData.addExecutiveAccount();
-//		}
+		}
+
+		else {
+			menu();
+		}
+
+	}
+
+	// Main menu of retail banking customer executive
+	public static void menu() throws Exception {
+		try {
+			Scanner sc = new Scanner(System.in);
+			System.out.println();
+			System.out.println("Menu");
+			System.out.println("1: Create Customer");
+			System.out.println("2: Update Customer");
+			System.out.println("3: Delete Customer");
+
+			int accountKey = sc.nextInt();
+			sc.nextLine();
+			if (accountKey == 1) {
+				// Create New Customer
+				addData.addCustomerAccount();
+				menu();
+			} else if (accountKey == 2) {
+				// Update Customer Data
+				updateCustomer.updateCustomerAccount();
+				menu();
+			} else if (accountKey == 3) {
+				// Delete Customer Data
+				deleteCustomer.deleteCustomerAccount();
+				menu();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Enter Valid Key");
+			MainClass.main(null);
+		}
+
 	}
 }
