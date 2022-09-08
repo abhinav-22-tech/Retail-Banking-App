@@ -43,10 +43,12 @@ public class MainClass {
 				
 				int accountKey = sc.nextInt();sc.nextLine();
 				if(accountKey == 1) {
+					// Create New Customer
 					addData.addCustomerAccount();
 				}
 				else if(accountKey == 2) {
-					// updateData
+					// Update Customer Data
+					updateCustomer.updateCustomerAccount();
 				}
 				else if(accountKey == 3) {
 					// deleteData

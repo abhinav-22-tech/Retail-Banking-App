@@ -1,6 +1,7 @@
 package com.database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.database.entities.*;
@@ -42,15 +43,45 @@ public class addData {
 		Customer customer = new Customer(customerSSID,customerName, customerAge, 
 				customerAddress, customerCity, customerState);
 		
-		if(addData.addCustomer(customer)) {
+		if(checkSSNID(customerSSID)) {
+			System.out.println("SSNID Already Exist");
+		}
+		else if(addData.addCustomer(customer)) {
 			System.out.println("Customer creation initiated "
 					+ "successfully");
 		}
 	}
 	
+	public static boolean checkSSNID(int SSNID) {
+		try {
+			String query = "select * from customer";
+			PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
+			ResultSet resultSet;
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				int cSSNID = resultSet.getInt(2);
+				if(SSNID == cSSNID) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			
+			Helper.closeConnectionPreparedStatement();
+			return false;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Internal Error");
+		}
+		return false;
+	}
+	
 	public static boolean addCustomer(Customer customer) throws SQLException {
 		boolean flag = false;
-		String query = "insert into Customer(customerSSID, customerName, customerAge, customerAddress, "
+		String query = "insert into Customer(customerSSNID, customerName, "
+				+ "customerAge, customerAddress, "
 				+ "customerCity, customerState) values (?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = Helper.getConnectionPreparedStatement(query);
 		
