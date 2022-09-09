@@ -21,9 +21,6 @@ public class loginUser {
 					boolean addIntoLog = addUserStore(eUserName, ePassword);
 					return true && addIntoLog;
 				}
-				else {
-					return false;
-				}
 			}
 			
 			Helper.closeConnectionPreparedStatement();
