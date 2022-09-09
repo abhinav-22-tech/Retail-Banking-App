@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class addData {
 
+	// Insert customer data (new customer)
 	public static void addCustomerAccount() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 
@@ -68,7 +69,8 @@ public class addData {
 		}
 
 	}
-
+	
+	// check SSN ID verification
 	public static boolean checkSSNID(int SSNID) {
 		try {
 			String query = "select * from customer";
@@ -90,7 +92,8 @@ public class addData {
 		}
 		return false;
 	}
-
+	
+	// Sql query for add new customer 
 	public static boolean addCustomer(Customer customer) throws SQLException {
 		boolean flag = false;
 		String query = "insert into Customer(customerSSNID, customerName, " + "customerAge, customerAddress, "

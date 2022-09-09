@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class updateCustomer {
 
+	// Update the customer details
 	public static void updateCustomerAccount() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 
@@ -20,7 +21,6 @@ public class updateCustomer {
 		System.out.println();
 
 		if (!addData.checkSSNID(customerSSID)) {
-//			System.out.println(customerSSID);
 			System.out.println("SSNID Not Exist");
 		}
 
@@ -82,7 +82,8 @@ public class updateCustomer {
 			}
 		}
 	}
-
+	
+	// Get customer details 
 	public static Customer getCustomerData(int SSNID) {
 		try {
 			String query = "select * from customer";
@@ -116,6 +117,7 @@ public class updateCustomer {
 		return null;
 	}
 
+	// Sql query to update the customer details
 	public static boolean updateCus(Customer customer) throws SQLException {
 		boolean flag = false;
 		String query = "update Customer set customerName=?, " + "customerAge=?, customerAddress=?, "

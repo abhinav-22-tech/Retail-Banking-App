@@ -1,12 +1,7 @@
 package com.database;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.sql.*;
-
-import com.database.helper.BaseQuery;
-
-import com.database.entities.Customer;
+import java.sql.SQLException;
 
 public class MainClass {
 	static String inputUserName = null;
@@ -14,10 +9,8 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 
-//		BaseQuery.makeTable(false);
-
 		Scanner sc = new Scanner(System.in);
-		
+
 		// Check already login or not
 		if (inputUserName == null || inputPassword == null) {
 			System.out.println("Login!");
@@ -28,11 +21,10 @@ public class MainClass {
 			System.out.print("Enter Your Password: ");
 			inputPassword = sc.nextLine();
 			System.out.println();
-			
-			// verify username and password
+
+			// verify user name and password
 			if (loginUser.checkUsernamePassword(inputUserName, inputPassword)) {
 				System.out.println("Login Successfully");
-//				displayData.getExecutive();
 				menu();
 
 			} else {
@@ -77,6 +69,5 @@ public class MainClass {
 			System.out.println("Enter Valid Key");
 			MainClass.main(null);
 		}
-
 	}
 }
