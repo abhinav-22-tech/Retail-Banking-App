@@ -44,7 +44,7 @@ public class addData {
 		Customer customer = new Customer(customerSSID, customerName, customerAge, customerAddress, customerCity,
 				customerState);
 
-		System.out.println("1: Confirm Update");
+		System.out.println("1: Confirm Create");
 		System.out.println("2: Back To Menu");
 
 		int deletekey = sc.nextInt();
